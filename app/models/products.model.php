@@ -4,10 +4,8 @@ class ProductsModel
 {
     private $db;
 
-    public  function __construct()
-    {
+    public  function __construct() {
         $this->db = $this->connect();
-        
     }
 
     private function connect()  {
@@ -16,8 +14,6 @@ class ProductsModel
     }
 
     public  function getAllProducts()  {
-        session_start();
-
         $query = $this->db->prepare('SELECT * FROM products');
         $query->execute();
 
@@ -29,8 +25,7 @@ class ProductsModel
 
     public  function insertProduct($name, $price, $size, $description, $category, $imagen = null)   {
         $pathImg = null;
-
-
+        
         if ($imagen) {
             $pathImg = $this->uploadImage($imagen);
             $query = $this->db->prepare('INSERT INTO products (nombre, precio, talle, descripcion, id_categoria_fk, imagen) VALUES (?, ?, ?, ?, ?, ?)');

@@ -11,7 +11,7 @@
             <input type="password" required class="form-control" id="password" name="password">
         </div>
 
-        {if $error} 
+        {if $error}
             <div class="alert alert-danger mt-3">
                 {$error}
             </div>
@@ -21,4 +21,3 @@
 </div>
 
 {include file='footer.tpl'}
-

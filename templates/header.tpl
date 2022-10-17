@@ -29,24 +29,26 @@
                         <li class="navbar-nav">
                             <a class="nav-item nav-link" aria-current="page" href=" ">Home</a>
                             {if !isset($smarty.session.USER_ID)}
-                            <a class="nav-item nav-link" aria-current="page" href="products">Ver Productos</a>
+                                <a class="nav-item nav-link" aria-current="page" href="products">Ver Productos</a>
                             {else}
                                 <a class="nav-item nav-link" aria-current="page" href="products">Administrar productos</a>
-                        {/if}
-                        {if !isset($smarty.session.USER_ID)}
-                            <a class="nav-item nav-link" aria-current="page" href="categories">Ver Categorias</a>
+                            {/if}
+                            {if !isset($smarty.session.USER_ID)}
+                                <a class="nav-item nav-link" aria-current="page" href="categories">Ver Categorias</a>
                             {else}
-                                <a class="nav-item nav-link" aria-current="page" href="categories">Administar categorias </a>
+                                <a class="nav-item nav-link" aria-current="page" href="categories">Administar categorias
+                                </a>
 
                             {/if}
 
                             {if !isset($smarty.session.USER_ID)}
 
-                                <a class="btn btn-outline-success my-2 my-sm-0" aria-current="page" id="style" href="login">Login</a>
+                                <a class="btn btn-outline-success my-2 my-sm-0" aria-current="page" id="style"
+                                    href="login">Login</a>
 
                             {else}
 
-                                <a class="btn btn-danger" aria-current="page"  href="logout">Logout
+                                <a class="btn btn-danger" aria-current="page" href="logout">Logout
                                     ({$smarty.session.USER_EMAIL})</a>
 
                             {/if}

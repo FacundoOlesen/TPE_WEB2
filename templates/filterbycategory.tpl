@@ -18,19 +18,19 @@
     <th>Detalle</th>
     <th>Categoría</th>
     {foreach from=$productsbycategory item=$productbycategory}
-        
+
         <tr>
             <td> {$productbycategory->nombre} </td>
             <td> {$productbycategory->precio} </td>
             <td> {$productbycategory->talle} </td>
             <td> <a href='details/{$productbycategory->id}' type='button' class='btn btn-warning'>Detalles</a> </td>
             <td> {$productbycategory->id_categoria_fk} </td>
-            </tr>
-        {/foreach}
-    </table>
+        </tr>
+    {/foreach}
+</table>
 
 
-    
 
- 
+
+
 {include file="footer.tpl"}

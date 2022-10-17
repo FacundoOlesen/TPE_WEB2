@@ -13,6 +13,7 @@ class AuthHelper {
             die();
         }
     } 
+    
     function IsLoged(){
         session_start();
     }

@@ -7,9 +7,7 @@ class ProductsView {
         $this->smarty = new Smarty(); // inicializo Smarty
     }
 
-    public function showHome($products, $categories) {
-        $this->smarty->assign('products', $products); 
-        $this->smarty->assign('categories', $categories); 
+    public function showHome() {
         $this->smarty->display('home.tpl');
     }
 

@@ -2,9 +2,9 @@
 <h1> Viendo detalles del producto: <span class="highlight"> {$products->nombre} </span> </h1>
 
 <div class="card" style="width: 18rem;">
-{if $products->imagen != NULL}  
-<img class="card-img-top" src="{$products->imagen}" alt="Acá iria la imagen">
-{/if}
+  {if $products->imagen != NULL}
+    <img class="card-img-top" src="{$products->imagen}" alt="Acá iria la imagen">
+  {/if}
   <div class="card-body">
     <h5 class="card-title">{$products->nombre}</h5>
     <p class="card-text"><strong> <span class="highlight"> Precio:</span> </strong>{$products->precio}</p>

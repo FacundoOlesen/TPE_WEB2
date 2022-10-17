@@ -8,9 +8,9 @@ require_once 'app/controllers/auth.controller.php';
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
 
-$action = 'home'; 
+$action = 'home';
 if (!empty($_GET['action'])) {
-    $action = $_GET['action'];  
+    $action = $_GET['action'];
 }
 
 
@@ -31,7 +31,7 @@ switch ($params[0]) {
         $authController->logout();
         break;
     case 'home':
-        $productscontroller->showAllProducts();
+        $productscontroller->showHome();
         break;
     case 'products':
         $productscontroller->showProducts();
@@ -47,14 +47,14 @@ switch ($params[0]) {
         $id = $params[1];
         $productscontroller->updateProduct($id);
         break;
-        case 'details':
-            $id = $params[1];
-            $productscontroller->showDetails($id);
-            break;
-        case 'category':
-            $id = $params[1];
-            $productscontroller->showProductsByCategory($id);
-            break;
+    case 'details':
+        $id = $params[1];
+        $productscontroller->showDetails($id);
+        break;
+    case 'category':
+        $id = $params[1];
+        $productscontroller->showProductsByCategory($id);
+        break;
     case 'categories':
         $categoriescontroller->showAllCategories();
         break;
