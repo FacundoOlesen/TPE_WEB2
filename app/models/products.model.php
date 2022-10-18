@@ -50,8 +50,7 @@ class ProductsModel
         $query->execute([$name, $price, $size, $description, $category, $id]);
     }
 
-    public  function deleteProductById($id)
-    {
+    public  function deleteProductById($id)   {
         $query = $this->db->prepare('DELETE FROM products WHERE id = ?');
         $query->execute([$id]);
     }

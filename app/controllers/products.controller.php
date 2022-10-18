@@ -9,8 +9,7 @@ class ProductsController
     private $model;
     private $view;
 
-    public function __construct()
-    {
+    public function __construct(){
         $this->model = new ProductsModel();
         $this->modelCategory = new CategoriesModel();
         $this->view = new ProductsView();
@@ -18,30 +17,26 @@ class ProductsController
     }
 
 
-    public function showHome()
-    {
+    public function showHome() {
         $this->helper->IsLoged();
         $this->view->showHome();
     }
 
-    public function showProducts()
-    {
+    public function showProducts() {
         $this->helper->IsLoged();
         $products = $this->model->getAllProducts();
         $categories = $this->modelCategory->getAllCategories();
         $this->view->showTable($products, $categories);
     }
 
-    public  function showProductsByCategory($id_category)
-    {
+    public  function showProductsByCategory($id_category)  {
         $this->helper->IsLoged();
         $categories = $this->modelCategory->getAllCategories();
         $productsbycategory = $this->model->filterProductsByCategorie($id_category);
         $this->view->filterProductsCategory($productsbycategory, $categories);
     }
 
-    public  function addProduct()
-    {
+    public  function addProduct()   {
         $this->helper->checkloggedIn();
         $products = $this->model->getAllProducts();
         $category = $this->modelCategory->getAllCategories();

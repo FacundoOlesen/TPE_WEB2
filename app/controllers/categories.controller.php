@@ -5,17 +5,11 @@ require_once 'app/views/categories.view.php';
 require_once 'app/models/products.model.php';
 require_once 'app/helpers/auth.helper.php';
 
-
-
-
-
-class CategoriesController
-{
+class CategoriesController {
     private $model;
     private $view;
 
-    public  function __construct()
-    {
+    public  function __construct() {
         $this->model = new CategoriesModel();
         $this->view = new CategoriesView();
         $this->modelProducts = new ProductsModel();
@@ -23,16 +17,14 @@ class CategoriesController
     }
 
 
-    public   function showAllCategories()
-    {
+    public   function showAllCategories() {
         $this->helper->IsLoged();
         $categories = $this->model->getAllCategories();
         $this->view->showTableCategories($categories);
     }
 
 
-    public   function addCategory()
-    {
+    public   function addCategory()  {
         $this->helper->checkloggedIn();
         $category = $_POST['category'];
         if (isset($category) && !empty($category)) {
@@ -46,8 +38,7 @@ class CategoriesController
     }
 
 
-    public   function updateCategory($id)
-    {
+    public   function updateCategory($id)  {
         $this->helper->checkloggedIn();
         error_reporting(E_ALL ^ E_WARNING);
         $category = $this->model->getCategoriesById($id);
@@ -62,8 +53,7 @@ class CategoriesController
         }
     }
 
-    public  function deleteCategory($id)
-    {
+    public  function deleteCategory($id) {
         $this->helper->checkloggedIn();
         $categories = $this->model->getCategoriesById($id);
         try {
