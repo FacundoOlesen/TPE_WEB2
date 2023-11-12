@@ -8,8 +8,11 @@ require_once 'app/helpers/auth.helper.php';
 class CategoriesController {
     private $model;
     private $view;
+    private $helper;
+    private $modelProducts;
 
     public  function __construct() {
+
         $this->model = new CategoriesModel();
         $this->view = new CategoriesView();
         $this->modelProducts = new ProductsModel();
@@ -40,15 +43,15 @@ class CategoriesController {
 
     public   function updateCategory($id)  {
         $this->helper->checkloggedIn();
-        error_reporting(E_ALL ^ E_WARNING);
+
+
         $category = $this->model->getCategoriesById($id);
         $this->view->editCategorie($category);
-        $categoryupdated = $_POST['category'];
-        if (empty($categoryupdated)) {
+        if (empty($_POST['category'])) {
             /*$this->view->showError2($category);*/
             die();
         } else {
-            $this->model->modifyCategory($categoryupdated, $id);
+            $this->model->modifyCategory($_POST['category'], $id);
             header("Location: " . BASE_URL . "categories");
         }
     }

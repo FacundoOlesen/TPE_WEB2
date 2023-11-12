@@ -8,7 +8,8 @@ class ProductsController
 {
     private $model;
     private $view;
-
+    private $helper;
+    private $modelCategory;
     public function __construct(){
         $this->model = new ProductsModel();
         $this->modelCategory = new CategoriesModel();
@@ -72,25 +73,19 @@ class ProductsController
     }
 
     public  function updateProduct($id) {
-        error_reporting(E_ALL ^ E_WARNING);
         $this->helper->checkloggedIn();
 
         $product = $this->model->getProductsById($id);
         $categories = $this->modelCategory->getAllCategories();
 
         $this->view->editProduct($product, $categories);
-        $name = $_POST['editname'];
-        $price = $_POST['editprice'];
-        $size = $_POST['editsize'];
-        $description = $_POST['description'];
-        $category = $_POST['category'];
 
-        if (empty($name) && !isset($name) && empty($price) && empty($size)) {
+        if (empty($_POST['editname']) && !isset($_POST['editname']) && empty($_POST['editprice']) && empty($_POST['editsize'])) {
             die();
         } 
         
         else {
-            $this->model->modifyProduct($name, $price, $size, $description, $category, $id);
+            $this->model->modifyProduct($_POST['editname'], $_POST['editprice'], $_POST['editsize'], $_POST['description'], $_POST['category'], $id);
             header("Location: " . BASE_URL . "products");
         }
     }
